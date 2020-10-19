@@ -10,7 +10,7 @@ A group exercise to learn working with databases and OOP
 [this Escersize](challenge.md).
 
 ## How?
-Working with a [trello]() 
+Working with a [trello](https://trello.com/b/woD9sNBN/price-calculator) 
 Going to work better together on github then last time.
 
 ## Checklist
