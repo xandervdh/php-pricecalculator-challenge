@@ -13,6 +13,11 @@ A group exercise to learn working with databases and OOP
 Working with a [trello](https://trello.com/b/woD9sNBN/price-calculator) 
 Going to work better together on github then last time.
 
+## How to use?
+- pull the repository
+- make database using the resources map
+- make a config.php file where you make the database connection
+
 ## Checklist
 ### Must have's
 
