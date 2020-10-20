@@ -11,10 +11,16 @@ class Productloader
         $this->pdo = $pdo;
         $result = $this->LoadAllProducts();
         foreach ($result as $row) {
-            $divideBy = $row['price']/100;
-            array_push($this->products,new Product($row['name'], $divideBy));
+            $divideBy = $row['price'] / 100;
+            array_push($this->products, new Product($row['name'], $divideBy));
         }
 
+    }
+
+
+    public function getProducts(): array
+    {
+        return $this->products;
     }
 
 
