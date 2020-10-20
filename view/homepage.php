@@ -1,23 +1,27 @@
 <?php
 declare(strict_types=1);
-ini_set('display_errors', '1');
-ini_set('display_startup_errors', '1');
-error_reporting(E_ALL);
+
 require 'includes/header.php';
 ?>
 
     <form method="post">
         <label for="client">Choose a client:</label>
         <select id="client" name="client">
+            <option value="empty">- Choose option -</option>
             <?php
-            for ($i = 0; $i < count($clients); $i++){
-                echo '<option value="' . $clients[$i] . '">' . $clients[$i] . '</option>';
+            foreach ($clients as $client) {
+                echo '<option value="' . $client->getFirstname() .' ' . $client->getLastname() . '">' . $client->getFirstname() .' ' . $client->getLastname() . '</option>';
             }
             ?>
         </select><br>
         <label for="product">Choose a product:</label>
         <select id="product" name="product">
-            <option value="volvo">Volvo</option>
+            <option value="empty">- Choose option -</option>
+            <?php
+            foreach ($productsArray as $product) {
+                echo '<option value="' . $product->getProductname() . '">' . $product->getProductname() .' - €' . $product->getProductprice() . '</option>';
+            }
+            ?>
         </select><br>
         <input type="submit" value="Calculate" class="btn btn-primary">
     </form>

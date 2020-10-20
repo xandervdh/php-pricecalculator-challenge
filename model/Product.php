@@ -5,7 +5,7 @@ declare(strict_types=1);
 class Product
 {
     private string $productname;
-    private int $productprice;
+    private $productprice;
 
     public function __construct($productname, $productprice)
     {
@@ -19,10 +19,7 @@ class Product
         return $this->productname;
     }
 
-    /**
-     * @return int
-     */
-    public function getProductprice(): int
+    public function getProductprice()
     {
         return $this->productprice;
     }

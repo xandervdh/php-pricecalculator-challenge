@@ -3,7 +3,7 @@
 
 class Productloader
 {
-    private array $products;
+    private array $products = [];
     private $pdo;
 
     public function __construct($pdo)
