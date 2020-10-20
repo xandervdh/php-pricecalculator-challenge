@@ -28,7 +28,7 @@ class Calculate
         $product = $handler->fetch();
         $this->product = $product;
         $this->getGroups();
-
+        $this->calcVariableDiscount();
     }
 
     public function getGroups()
@@ -43,8 +43,29 @@ class Calculate
             array_push($this->customerGroups, $customerGroup);
 
             $groupId = $customerGroup['parent_id'];
-            echo $groupId;
         } while($groupId != null);
 
+    }
+
+    public function calcFixedDiscount()
+    {
+        $fixedDiscount = 0;
+        foreach ($this->customerGroups as $group){
+            $fixedDiscount += $group['fixed_discount'];
+        }
+    }
+
+    public function calcVariableDiscount()
+    {
+        $i = 0;
+        $variable = 0;
+        do {
+            if ($variable <= $this->customerGroups[$i]['variable_discount']){
+                $variable = $this->customerGroups[$i]['variable_discount'];
+            }
+            echo $variable . 'aaaaaaaaaaahhhhh!!!!';
+            $i++;
+        } while($i < count($this->customerGroups));
+        //echo $variable . 'aaaaaaaaaaahhhhh!!!!';
     }
 }
