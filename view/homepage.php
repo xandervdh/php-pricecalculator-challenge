@@ -9,7 +9,11 @@ require 'includes/header.php';
     <form method="post">
         <label for="client">Choose a client:</label>
         <select id="client" name="client">
-            <option value="volvo">Volvo</option>
+            <?php
+            for ($i = 0; $i < count($clients); $i++){
+                echo '<option value="' . $clients[$i] . '">' . $clients[$i] . '</option>';
+            }
+            ?>
         </select><br>
         <label for="product">Choose a product:</label>
         <select id="product" name="product">

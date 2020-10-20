@@ -1,6 +1,5 @@
 <?php
 declare(strict_types=1);
-require 'config.php';
 require 'controller/HomePageController.php';
 //include all your model files here
 
