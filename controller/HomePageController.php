@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
 
 ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
@@ -9,6 +9,7 @@ require 'model/Customers.php';
 require 'model/Client.php';
 require 'model/Product.php';
 require 'model/Productloader.php';
+require 'model/Calculate.php';
 require 'config.php';
 
 class HomepageController
@@ -23,9 +24,13 @@ class HomepageController
         $productsArray = $products->getProducts();
 
         $success = "";
-        if ($_SERVER["REQUEST_METHOD"] == "POST"){
-            if ($_POST['client'] != 'empty' && $_POST['product'] != 'empty'){
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if ($_POST['client'] != 'empty' && $_POST['product'] != 'empty') {
                 $success = '<div class="alert alert-success" role="alert"> Price calculated </div>';
+
+                $calculate = new Calculate(intval($_POST['client']), intval($_POST['product']), $pdo);
+                var_dump($calculate);
+
             }
         }
         require 'view/homepage.php';
