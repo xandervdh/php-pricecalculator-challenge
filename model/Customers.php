@@ -4,7 +4,8 @@
 class Customers
 {
     private $pdo;
-    private array $customers;
+    /**@var customer[] */
+    private array $customers = [];
 
     public function __construct ($pdo)
     {
@@ -14,6 +15,20 @@ class Customers
         $handle->execute();
         $users = $handle->fetchAll();
         var_dump($users);
+
+
+    //   array_push($this->customers, new Client($firstName,$lastName));
+
+        /*
+         if (count($customers) > 20) {
+            array_shift($this->posts);
+        }
+        */
+    }
+
+    function getAllCustomers($pdo) {
+        return $pdo->query('SELECT * FROM customer');
+
     }
 
 
