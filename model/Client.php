@@ -2,19 +2,16 @@
 declare(strict_types=1);
 
 
-
-
 class Client
 {
     private $firstName;
     private $lastName;
-
-    public function __construct($firstName, $lastName)
+    private $id;
+    public function __construct($firstName, $lastName, $id)
     {
         $this->firstName = $firstName;
         $this->lastName = $lastName;
-
-
+        $this->id = $id;
     }
 
     /**
@@ -25,12 +22,14 @@ class Client
         return $this->firstName;
     }
 
-    /**
-     * @return mixed
-     */
+
     public function getLastName()
     {
         return $this->lastName;
+    }
+    public function getId()
+    {
+        return $this->id;
     }
 
 }

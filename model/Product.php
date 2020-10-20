@@ -6,12 +6,19 @@ class Product
 {
     private string $productname;
     private $productprice;
+    private $productId;
 
-    public function __construct($productname, $productprice)
+    public function __construct($productId, $productname, $productprice)
     {
         $this->productname = $productname;
         $this->productprice = $productprice;
+        $this->productId = $productId;
 
+    }
+
+    public function getProductId()
+    {
+        return $this->productId;
     }
 
     public function getProductname(): string //to get the private properties
@@ -26,7 +33,4 @@ class Product
 
 }
 // $p = new Product();
-//echo $p->getProductname;
-//echo $p->getProductprice;
 
-//echo(round(0.70878, 2)); 2 digits after comma (echo $p->round(getProductprice, 2); !!!integer

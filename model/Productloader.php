@@ -12,7 +12,7 @@ class Productloader
         $result = $this->LoadAllProducts();
         foreach ($result as $row) {
             $divideBy = $row['price'] / 100;
-            array_push($this->products, new Product($row['name'], $divideBy));
+            array_push($this->products, new Product($row['id'],$row['name'], $divideBy));
         }
 
     }
