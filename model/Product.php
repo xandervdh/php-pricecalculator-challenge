@@ -5,7 +5,7 @@ declare(strict_types=1);
 class Product
 {
     private string $productname;
-    private integer $productprice;
+    private int $productprice;
 
     public function __construct($productname, $productprice)
     {
@@ -31,3 +31,4 @@ class Product
 // $p = new Product();
 //echo $p->getProductname;
 //echo $p->getProductprice;
+//echo(round(0.70878, 2)); 2 digits after comma (echo $p->round(getProductprice, 2); !!!integer
