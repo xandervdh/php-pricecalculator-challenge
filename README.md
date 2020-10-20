@@ -7,7 +7,7 @@
 
 ## What?
 A group exercise to learn working with databases and OOP
-[this Escersize](challenge.md).
+[this Excersize](challenge.md).
 
 ## How?
 Working with a [trello](https://trello.com/b/woD9sNBN/price-calculator) 
