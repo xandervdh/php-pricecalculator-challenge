@@ -22,8 +22,8 @@ Going to work better together on github then last time.
 ### Must have's
 
 - [ ] A dropdown where you can select a Product and a Customer and you get the basic information of the product + the price.
-- [ ] Use a [MVC pattern](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller). You can use the [MVC Boilerplate](https://github.com/becodeorg/php-mvc-boilerplate).
-- [ ] Use separate objects for importing the entities with SQL, and for managing the entities.
+- [x] Use a [MVC pattern](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller). You can use the [MVC Boilerplate](https://github.com/becodeorg/php-mvc-boilerplate).
+- [x] Use separate objects for importing the entities with SQL, and for managing the entities.
 
 ### Nice to have's
 

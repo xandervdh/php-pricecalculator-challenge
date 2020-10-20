@@ -22,6 +22,12 @@ class HomepageController
         $products = new Productloader($pdo);
         $productsArray = $products->getProducts();
 
+        $success = "";
+        if ($_SERVER["REQUEST_METHOD"] == "POST"){
+            if ($_POST['client'] != 'empty' && $_POST['product'] != 'empty'){
+                $success = '<div class="alert alert-success" role="alert"> Price calculated </div>';
+            }
+        }
         require 'view/homepage.php';
     }
 }
