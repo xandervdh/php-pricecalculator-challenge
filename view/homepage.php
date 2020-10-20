@@ -1,4 +1,10 @@
-<?php require 'includes/header.php'; ?>
+<?php
+declare(strict_types=1);
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
+require 'includes/header.php';
+?>
 
     <form method="post">
         <label for="client">Choose a client:</label>
@@ -9,7 +15,7 @@
         <select id="product" name="product">
             <option value="volvo">Volvo</option>
         </select><br>
-        <input type="submit" class="btn btn-primary">
+        <input type="submit" value="Calculate" class="btn btn-primary">
     </form>
 
 

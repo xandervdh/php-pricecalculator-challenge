@@ -5,10 +5,10 @@ class HomepageController
 {
     public function render()
     {
-        $customers = new Customer();
+        //$customers = new Customer();
 
 
 
-        require '../view/homepage.php';
+        require 'view/homepage.php';
     }
 }
