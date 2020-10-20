@@ -33,6 +33,14 @@ var_dump($this->customers);
 
     }
 
+    /**
+     * @return Customer[]
+     */
+    public function getCustomers(): array
+    {
+        return $this->customers;
+    }
+
 
 }
 
