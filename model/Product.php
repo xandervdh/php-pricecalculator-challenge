@@ -6,7 +6,6 @@ class Product
 {
     private string $productname;
     private $productprice;
-    private $productId;
 
     public function __construct($productname, $productprice)
     {
