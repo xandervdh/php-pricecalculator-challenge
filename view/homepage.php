@@ -10,7 +10,7 @@ require 'includes/header.php';
             <option value="empty" selected>- Choose option -</option>
             <?php
             foreach ($clients as $client) {
-                echo '<option value="' . $client->getFirstname() . ' ' . $client->getLastname() . '">' . $client->getFirstname() . ' ' . $client->getLastname() . '</option>';
+                echo '<option value="' . $client->getId() . '">' . $client->getFirstname() . ' ' . $client->getLastname() . '</option>';
             }
             ?>
         </select><br>
@@ -19,12 +19,15 @@ require 'includes/header.php';
             <option value="empty" selected>- Choose option -</option>
             <?php
             foreach ($productsArray as $product) {
-                echo '<option value="' . $product->getProductname() . '">' . $product->getProductname() . ' - €' . $product->getProductprice() . '</option>';
+                echo '<option value="' . $product->getProductId() . '">' . $product->getProductname() . ' - €' . $product->getProductprice() . '</option>';
             }
             ?>
         </select><br>
         <input type="submit" value="Calculate" class="btn btn-primary">
     </form>
+    <div>
 
+        <?php echo '€' . number_format($total, 2, ',', '.'); ?>
+    </div>
 
 <?php require 'includes/footer.php'; ?>
