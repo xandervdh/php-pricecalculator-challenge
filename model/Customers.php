@@ -1,5 +1,4 @@
 <?php
-//require 'Client.php';
 
 class Customers
 {

@@ -7,7 +7,7 @@ require 'includes/header.php';
 <?php echo $success; ?>
     <div class="form-container">
         <form method="post">
-            <label for="client">Choose a client:</label>
+            <!--<label for="client">Choose a client:</label>
             <select class='option-box' id="client" name="client">
                 <option value="empty" selected>- Choose option -</option>
                 <?php
@@ -15,7 +15,7 @@ require 'includes/header.php';
                     echo '<option value="' . $client->getLastname() . '">' . $client->getFirstname() . ' ' . $client->getLastname() . '</option>';
                 }
                 ?>
-            </select><br>
+            </select><br>-->
             <label for="product">Choose a product:</label>
             <select class='option-box' id="product" name="product">
                 <option value="empty" selected>- Choose option -</option>

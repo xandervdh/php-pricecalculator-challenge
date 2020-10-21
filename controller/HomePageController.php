@@ -17,18 +17,18 @@ class HomepageController
     public function render()
     {
         $pdo = openDB();
-        $customers = new Customers($pdo);
-        $clients = $customers->getCustomers();
+        $customerObj = new Customers($pdo);
+        $clients = $customerObj->getCustomers();
 
         $products = new Productloader($pdo);
         $productsArray = $products->getProducts();
 
         $success = "";
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            if ($_POST['client'] != 'empty' && $_POST['product'] != 'empty') {
+            if ($_POST['product'] != 'empty') {
                 $success = '<div class="alert alert-success" role="alert"> Price calculated </div>';
 
-                $calculate = new Calculate($pdo, $products, $_POST['product'], $customers, $_POST['client']);
+                $calculate = new Calculate($pdo, $products, $_POST['product'], $customerObj, $_GET['client']);
                 $total = $calculate->calculateDiscount();
 
             }
