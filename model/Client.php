@@ -7,11 +7,10 @@ class Client
     private $firstName;
     private $lastName;
     private $id;
-    public function __construct($firstName, $lastName, $id)
+    public function __construct($firstName, $lastName)
     {
         $this->firstName = $firstName;
         $this->lastName = $lastName;
-        $this->id = $id;
     }
 
     /**
