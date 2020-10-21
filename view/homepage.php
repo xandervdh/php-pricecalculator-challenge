@@ -4,10 +4,10 @@ declare(strict_types=1);
 require 'includes/header.php';
 
 ?>
-<?php echo $success; ?>
+
     <div class="form-container">
         <form method="post">
-            <!--<label for="client">Choose a client:</label>
+            <!--<label for="client">Choose user:</label>
             <select class='option-box' id="client" name="client">
                 <option value="empty" selected>- Choose option -</option>
                 <?php
@@ -26,15 +26,17 @@ require 'includes/header.php';
                 }
                 ?>
             </select><br>
-            <input type="submit" value="Calculate" class="btn btn-primary">
+            <input type="submit" value="Confirm" class="btn">
         </form>
+        <div id="echo-success"><?php echo $success; ?></div>
         <div id="result">
             <?php
             if (isset($total)){
-                echo '€' . number_format($total, 2, ',', '.');
+                echo 'Your total will be €' . number_format($total, 2, ',', '.');
             }
             ?>
         </div>
+
     </div>
 
 <?php require 'includes/footer.php'; ?>

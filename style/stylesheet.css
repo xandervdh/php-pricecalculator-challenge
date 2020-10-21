@@ -28,6 +28,11 @@ label {
   text-align: center;
 }
 
+label:first-child {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
 select {
   display: block;
   text-align: center;
@@ -47,6 +52,11 @@ select {
   display: flex;
 }
 
+#echo-success {
+  color: #f1f3f5;
+  text-align: center;
+}
+
 .btn {
   background: #f5a51c;
   border: #f1f3f5;
@@ -57,6 +67,8 @@ select {
   text-align: center;
   width: 300px;
   color: white;
+  margin-bottom: 3%;
+  width: 200px;
 }
 
 .btn:hover {
@@ -67,6 +79,11 @@ select {
 .btn:active {
   background: #f5a51c;
   border: #f1f3f5;
+}
+
+#result {
+  color: #f1f3f5;
+  text-align: center;
 }
 
 /*# sourceMappingURL=stylesheet.css.map */

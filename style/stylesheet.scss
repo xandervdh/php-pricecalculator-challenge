@@ -17,6 +17,12 @@
   background: rgb(245, 165, 28);
   border: rgb(241, 243, 245);
 }
+
+@mixin base-font-edit{
+  color: rgb(241, 243, 245);
+  text-align: center;
+
+}
 //BODY
 
 * {
@@ -47,7 +53,10 @@ label {
   @include font-related-label;
   text-align: center;
 }
-
+label:first-child{
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
 select {
   display: block;
   text-align: center;
@@ -65,10 +74,17 @@ select {
 
 }
 
+#echo-success {
+@include base-font-edit;
+
+}
+
 .btn {
   @include btn-base-color;
   @include font-related-option;
   color: white;
+  margin-bottom: 3%;
+  width: 200px;
 }
 
 .btn:hover {
@@ -78,4 +94,10 @@ select {
 
 .btn:active {
   @include btn-base-color;
+}
+
+//ID's
+
+#result {
+@include base-font-edit;
 }
