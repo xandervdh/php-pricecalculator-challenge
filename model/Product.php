@@ -7,25 +7,21 @@ class Product
     private string $productname;
     private int $productprice;
 
-    public function __construct($productname, $productprice)
+    public function __construct(string $productname, int $productprice)
     {
         $this->productname = $productname;
         $this->productprice = $productprice;
-
-
     }
 
-
-    public function getProductname(): string //to get the private properties
+    public function getProductname(): string
     {
         return $this->productname;
     }
 
-    public function getProductprice():float
+    public function getProductprice(): int
     {
         return $this->productprice;
     }
-
 }
 
 

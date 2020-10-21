@@ -4,13 +4,18 @@
   box-sizing: border-box;
 }
 
+body {
+  background: rgba(193, 246, 242, 0.7);
+}
+
 .form-container {
+  border: 4px solid #f5a51c;
   margin: auto;
-  margin-top: 3%;
-  height: 500px;
+  margin-top: 5%;
+  height: 300px;
   width: 500px;
   background: #4e7495;
-  border-radius: 5%;
+  border-radius: 25%;
 }
 
 form {
@@ -20,12 +25,16 @@ form {
 label {
   font-family: "Work Sans", sans-serif;
   font-size: 20px;
-  color: #f1f3f5;
+  text-align: center;
 }
 
 select {
   display: block;
+  text-align: center;
   margin: 0 auto;
+  width: 300px;
+  text-transform: uppercase;
+  font-size: 16px;
 }
 
 .option-box {
@@ -36,6 +45,28 @@ select {
   text-align: center;
   width: 300px;
   display: flex;
+}
+
+.btn {
+  background: #f5a51c;
+  border: #f1f3f5;
+  font-family: "Work Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 900;
+  color: #4e7495;
+  text-align: center;
+  width: 300px;
+  color: white;
+}
+
+.btn:hover {
+  background: rgba(245, 165, 28, 0.8);
+  box-shadow: 1px 1px 1px 1px #f1f3f5;
+}
+
+.btn:active {
+  background: #f5a51c;
+  border: #f1f3f5;
 }
 
 /*# sourceMappingURL=stylesheet.css.map */

@@ -7,23 +7,23 @@ class Client
     private string $firstName;
     private string $lastName;
     private int $groupId;
-    private object $pdo;
+    private PDO $pdo;
     private $fixedDiscounts;
-    private $varDiscounts;
-    private $customerGroups = [];
+    private $varDiscount;
+    private array $customerGroups = [];
 
-    public function __construct($firstName, $lastName, int $groupId, object $pdo, $fixedDiscounts, $varDiscounts)
+    public function __construct(string $firstName, string $lastName, int $groupId, PDO $pdo, $fixedDiscounts, $varDiscounts)
     {
         $this->firstName = $firstName;
         $this->lastName = $lastName;
         $this->groupId = $groupId;
         $this->pdo = $pdo;
         $this->fixedDiscounts = $fixedDiscounts;
-        $this->varDiscounts = $varDiscounts;
+        $this->varDiscount = $varDiscounts;
         $this->getGroups();
     }
 
-    public function getGroups()
+    public function getGroups(): void
     {
         $groupId = $this->groupId;
 
@@ -39,18 +39,18 @@ class Client
     }
 
 
-    public function getFirstName()
+    public function getFirstName(): string
     {
         return $this->firstName;
     }
 
 
-    public function getLastName()
+    public function getLastName(): string
     {
         return $this->lastName;
     }
 
-    public function getCustomerGroups()
+    public function getCustomerGroups(): array
     {
         return $this->customerGroups;
     }
@@ -60,8 +60,8 @@ class Client
         return $this->fixedDiscounts;
     }
 
-    public function getVarDiscounts()
+    public function getVarDiscount()
     {
-        return $this->varDiscounts;
+        return $this->varDiscount;
     }
 }
