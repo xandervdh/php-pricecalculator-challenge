@@ -27,7 +27,7 @@ class Client
     {
         $groupId = $this->groupId;
 
-        do{
+        do {
             $handler = $this->pdo->prepare('SELECT * FROM customer_group WHERE id = :id');
             $handler->bindValue(':id', $groupId);
             $handler->execute();
@@ -35,20 +35,19 @@ class Client
             array_push($this->customerGroups, $customerGroup);
 
             $groupId = $customerGroup['parent_id'];
-        } while($groupId != null);
-
-    }
-
-    public function getFirstName()
-    {
-        return $this->firstName;
+        } while ($groupId != null);
     }
 
 
-    public function getLastName()
-    {
-        return $this->lastName;
-    }
+        public function getFirstName()
+        {
+            return $this->firstName;
+        }
+
+
+        public function getLastName()
+        {
+            return $this->lastName;
+        }
 
 }
-

@@ -12,13 +12,16 @@ class Customers
         $this->pdo = $pdo;
         $getAllCustomers = $this->getAllCustomers();
         foreach ($getAllCustomers as $row){
+
             array_push($this->customers, new Client($row['firstname'], $row['lastname'], $row['group_id'], $pdo, $row['fixed_discount'], $row['variable_discount']));
+
         }
 
 
     }
 
     function getAllCustomers() {
+
         return $this->pdo->query('SELECT firstname, lastname, group_id, variable_discount, fixed_discount FROM customer ORDER BY lastname');
 
 
