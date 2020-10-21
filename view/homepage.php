@@ -26,7 +26,7 @@ require 'includes/header.php';
                 }
                 ?>
             </select><br>
-            <input type="submit" value="Confirm" class="btn">
+            <input type="submit" value="Calculate" class="btn">
         </form>
         <div id="echo-success"><?php echo $success; ?></div>
         <div id="result">

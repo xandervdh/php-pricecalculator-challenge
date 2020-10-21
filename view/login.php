@@ -8,14 +8,14 @@ require 'includes/header.php';
         <form method="get">
             <label for="client">Choose a client:</label>
             <select class='option-box' id="client" name="client">
-                <option value="empty" selected>- Choose option -</option>
+                <option value="empty" selected>- Choose user -</option>
                 <?php
                 foreach ($clients as $client) {
                     echo '<option value="' . $client->getLastname() . '">' . $client->getFirstname() . ' ' . $client->getLastname() . '</option>';
                 }
                 ?>
             </select><br>
-            <input type="submit" value="Calculate" class="btn btn-primary">
+            <input type="submit" value="Confirm" class="btn btn-primary">
         </form>
     </div>
 
