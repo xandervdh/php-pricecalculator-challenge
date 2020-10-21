@@ -9,6 +9,7 @@ class Calculate
     private array $customer;
     private array $product;
     private array $customerGroups = [];
+    private float $discount;
 
     public function __construct(int $customerId, int $productId, PDO $pdo)
     {
@@ -28,7 +29,6 @@ class Calculate
         $product = $handler->fetch();
         $this->product = $product;
         $this->getGroups();
-        $this->calcVariableDiscount();
     }
 
     public function getGroups()
@@ -53,19 +53,49 @@ class Calculate
         foreach ($this->customerGroups as $group){
             $fixedDiscount += $group['fixed_discount'];
         }
+        return $fixedDiscount;
     }
 
     public function calcVariableDiscount()
     {
         $i = 0;
-        $variable = 0;
+        $variabledisc = 0;
         do {
-            if ($variable <= $this->customerGroups[$i]['variable_discount']){
-                $variable = $this->customerGroups[$i]['variable_discount'];
+            if ($variabledisc <= $this->customerGroups[$i]['variable_discount']){
+                $variabledisc = $this->customerGroups[$i]['variable_discount'];
             }
-            echo $variable . 'aaaaaaaaaaahhhhh!!!!';
             $i++;
         } while($i < count($this->customerGroups));
-        //echo $variable . 'aaaaaaaaaaahhhhh!!!!';
+        return $variabledisc;
+    }
+
+    public function discountComparison()
+    {
+        $price = $this->product['price'] / 100;
+        $fixedDisc = $this->calcFixedDiscount();
+        $variabledisc = $this->calcVariableDiscount();
+        $percentage = ($price / 100) * $variabledisc;
+        $discount = [];
+
+        if ($price - $fixedDisc < $price - $percentage ){
+            array_push($discount, $percentage, 'variable');
+        } else {
+            array_push($discount, $fixedDisc, 'fixed');
+        }
+        return $discount;
+    }
+
+    public function checkCustomerDiscount()
+    {
+        $discount = $this->discountComparison();
+        if ($discount[1] == 'variable'){
+            if ($this->customer['variable_discount'] != null){
+                if ($discount[0] < $this->customer['variable_discount']){
+                    $this->discount = $this->customer['variable_discount'];
+                } else {
+                    $this->discount = $discount[0];
+                }
+            }
+        }
     }
 }
