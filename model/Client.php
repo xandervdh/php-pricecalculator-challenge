@@ -8,15 +8,18 @@ class Client
     private $lastName;
     private $groupId;
     private $pdo;
+    private $fixedDiscounts;
+    private $varDiscounts;
     private $customerGroups;
 
-    public function __construct($firstName, $lastName, $groupId, $pdo, $customerGroups)
+    public function __construct($firstName, $lastName, $groupId, $pdo, $fixedDiscounts, $varDiscounts)
     {
         $this->firstName = $firstName;
         $this->lastName = $lastName;
         $this->groupId = $groupId;
         $this->pdo = $pdo;
-        $this->customerGroups = $customerGroups;
+        $this->fixedDiscounts = $fixedDiscounts;
+        $this->varDiscounts = $varDiscounts;
 
     }
 
