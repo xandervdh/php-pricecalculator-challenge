@@ -8,6 +8,7 @@ class Calculate
     private Product $product;
     private array $customerGroups;
     private float $discount;
+    private array $calculation;
 
     public function __construct(PDO $pdo, Productloader $product, string $productName, Customers $clients, string $client)
     {
@@ -59,7 +60,7 @@ class Calculate
         $discount = [];
 
         if ($fixed < $percentage) {
-            array_push($discount, $percentage, true);
+            array_push($discount, $variabledisc, true);
         } else {
             array_push($discount, $fixed, false);
         }
@@ -75,7 +76,7 @@ class Calculate
             $variableDisc = ($this->product->getProductprice() / 100) * $this->customer->getVarDiscount();
             $bool = true;
             if ($discount[0] < $variableDisc) {
-                $this->discount = $variableDisc;
+                $this->discount = $discount[0];
             }
         }
         array_push($discount, $bool);
@@ -87,13 +88,15 @@ class Calculate
         $price = $this->product->getProductprice();
         $discount = $this->checkCustomerDiscount();
         if ($discount[2]) {
-            $total = $price - $this->discount;
+            $percentage = ($price/100) * $this->discount;
+            $total = $price - $percentage;
         } elseif ($discount[1] == true && $this->customer->getFixedDiscounts() != null) {
             $total = $price - $this->customer->getFixedDiscounts();
-            $total -= $this->discount;
+            $percentage = ($total/100) * $this->discount;
+            $total -= $percentage;
         } elseif ($discount[1] == false && $this->customer->getVarDiscount() != null) {
             $total = $price - $discount[0];
-            $percentage = ($price / 100) * $this->customer->getVarDiscount();
+            $percentage = ($total / 100) * $this->customer->getVarDiscount();
             $total -= $percentage;
         } else {
             $total = $price - $discount[0];
