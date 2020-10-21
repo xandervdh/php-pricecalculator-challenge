@@ -25,6 +25,9 @@ require 'includes/header.php';
         </select><br>
         <input type="submit" value="Calculate" class="btn btn-primary">
     </form>
+    <div>
 
+        <?php echo '€' . number_format($total, 2, ',', '.'); ?>
+    </div>
 
 <?php require 'includes/footer.php'; ?>

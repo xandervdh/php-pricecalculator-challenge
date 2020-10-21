@@ -10,6 +10,7 @@ class Calculate
     private array $product;
     private array $customerGroups = [];
     private float $discount;
+    private float $total;
 
     public function __construct(int $customerId, int $productId, PDO $pdo)
     {
@@ -35,7 +36,7 @@ class Calculate
     {
         $groupId = $this->customer['group_id'];
 
-        do{
+        do {
             $handler = $this->pdo->prepare('SELECT * FROM customer_group WHERE id = :id');
             $handler->bindValue(':id', $groupId);
             $handler->execute();
@@ -43,14 +44,14 @@ class Calculate
             array_push($this->customerGroups, $customerGroup);
 
             $groupId = $customerGroup['parent_id'];
-        } while($groupId != null);
+        } while ($groupId != null);
 
     }
 
     public function calcFixedDiscount()
     {
         $fixedDiscount = 0;
-        foreach ($this->customerGroups as $group){
+        foreach ($this->customerGroups as $group) {
             $fixedDiscount += $group['fixed_discount'];
         }
         return $fixedDiscount;
@@ -61,41 +62,70 @@ class Calculate
         $i = 0;
         $variabledisc = 0;
         do {
-            if ($variabledisc <= $this->customerGroups[$i]['variable_discount']){
+            if ($variabledisc <= $this->customerGroups[$i]['variable_discount']) {
                 $variabledisc = $this->customerGroups[$i]['variable_discount'];
             }
             $i++;
-        } while($i < count($this->customerGroups));
+        } while ($i < count($this->customerGroups));
         return $variabledisc;
     }
 
     public function discountComparison()
     {
-        $price = $this->product['price'] / 100;
+        $price = $this->product['price'];
         $fixedDisc = $this->calcFixedDiscount();
         $variabledisc = $this->calcVariableDiscount();
         $percentage = ($price / 100) * $variabledisc;
+        $fixed = $fixedDisc * 100;
         $discount = [];
 
-        if ($price - $fixedDisc < $price - $percentage ){
-            array_push($discount, $percentage, 'variable');
+        if ($fixed < $percentage) {
+            array_push($discount, $percentage, true);
         } else {
-            array_push($discount, $fixedDisc, 'fixed');
+            array_push($discount, $fixed, false);
         }
+        $this->discount = $discount[0];
         return $discount;
     }
 
     public function checkCustomerDiscount()
     {
+        $bool = false;
         $discount = $this->discountComparison();
-        if ($discount[1] == 'variable'){
-            if ($this->customer['variable_discount'] != null){
-                if ($discount[0] < $this->customer['variable_discount']){
-                    $this->discount = $this->customer['variable_discount'];
-                } else {
-                    $this->discount = $discount[0];
-                }
+        if ($discount[1] == true && $this->customer['variable_discount'] != null) {
+            $variableDisc = ($this->product['price'] / 100) * $this->customer['variable_discount'];
+            $bool = true;
+            if ($discount[0] < $variableDisc) {
+                $this->discount = $variableDisc;
+            } else {
+                $this->discount = $discount[0];
             }
         }
+        array_push($discount, $bool);
+        return $discount;
+    }
+
+    public function calculateDiscount()
+    {
+        $price = $this->product['price'];
+        $discount = $this->checkCustomerDiscount();
+        if ($discount[2]){
+            $this->total = $price - $this->discount;
+        } elseif($discount[1] == true && $this->customer['fixed_discount'] != null) {
+            $this->total = $price - $this->customer['fixed_discount'];
+            $this->total -=  $this->discount;
+        } elseif($discount[1] == false && $this->customer['variable_discount'] != null){
+            $this->total = $price - $discount[0];
+            $percentage = ($price / 100) * $this->customer['variable_discount'];
+            $this->total -=  $percentage;
+        } else{
+            $this->total = $price - $discount[0];
+            $this->total -= $this->customer['fixed_discount'];
+        }
+        if ($this->total < 0){
+            $this->total = 0;
+        }
+        $this->total = $this->total/100;
+        return $this->total;
     }
 }

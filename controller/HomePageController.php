@@ -29,6 +29,7 @@ class HomepageController
                 $success = '<div class="alert alert-success" role="alert"> Price calculated </div>';
 
                 $calculate = new Calculate(intval($_POST['client']), intval($_POST['product']), $pdo);
+                $total = $calculate->calculateDiscount();
                 var_dump($calculate);
 
             }
