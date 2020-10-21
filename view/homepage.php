@@ -11,7 +11,7 @@ require 'includes/header.php';
                 <option value="empty" selected>- Choose option -</option>
             <?php
             foreach ($clients as $client) {
-                echo '<option value="' . $client->getFirstname() . ' ' . $client->getLastname() . '">' . $client->getFirstname() . ' ' . $client->getLastname() . '</option>';
+                echo '<option value="' . $client->getLastname() . '">' . $client->getFirstname() . ' ' . $client->getLastname() . '</option>';
             }
             ?>
         </select><br>
@@ -27,6 +27,8 @@ require 'includes/header.php';
         </select><br>
         <input type="submit" value="Calculate" class="btn btn-primary">
     </form>
-</div>
+    <div id="result">
+        <?php echo '€' . number_format($total, 2, ',', '.'); ?>
+    </div>
 
 <?php require 'includes/footer.php'; ?>
