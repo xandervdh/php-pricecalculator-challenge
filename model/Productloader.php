@@ -12,7 +12,7 @@ class Productloader
         $result = $this->LoadAllProducts();
         foreach ($result as $row) {
             $divideBy = $row['price'] / 100;
-            array_push($this->products, new Product($row['id'],$row['name'], $divideBy));
+            array_push($this->products, new Product($row['name'], $divideBy));
         }
 
     }
@@ -26,7 +26,7 @@ class Productloader
 
     public function LoadAllProducts()
     {
-        return $this->pdo->query("SELECT * FROM product");
+        return $this->pdo->query("SELECT name, price FROM product");//* is alles selecteren van database, veranderen in wat nodig is
 
 
     }
