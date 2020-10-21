@@ -1,3 +1,48 @@
-form{
-  margin: 50px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@mixin font-related-label {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 20px;
+  color: rgb(241, 243, 245);
+}
+
+@mixin font-related-option{
+  font-family: 'Work Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 900;
+  color: rgb(78, 116, 149);
+  width: 200px;
+}
+
+.form-container {
+  margin: auto;
+  margin-top: 3%;
+  height: 500px;
+  width: 500px;
+  background: rgb(78, 116, 149);
+  border-radius: 5%;
+}
+
+form {
+  text-align: center;
+}
+
+label {
+@include font-related-label;
+
+}
+
+select {
+  display: block;
+  margin: 0 auto;
+}
+
+.option-box {
+@include font-related-option;
+  display: flex;
+
 }
