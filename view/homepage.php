@@ -2,6 +2,7 @@
 declare(strict_types=1);
 
 require 'includes/header.php';
+
 ?>
 <?php echo $success; ?>
     <div class="form-container">
@@ -28,7 +29,11 @@ require 'includes/header.php';
             <input type="submit" value="Calculate" class="btn btn-primary">
         </form>
         <div id="result">
-            <?php echo '€' . number_format($total, 2, ',', '.'); ?>
+            <?php
+            if (isset($total)){
+                echo '€' . number_format($total, 2, ',', '.');
+            }
+            ?>
         </div>
     </div>
 
