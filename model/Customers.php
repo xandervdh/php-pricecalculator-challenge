@@ -5,7 +5,7 @@ class Customers
 {
     private $pdo;
     private array $customers = [];
-    private array $customerGroups = [];
+
 
     public function __construct ($pdo)
     {
@@ -24,22 +24,7 @@ class Customers
 
     }
 
-  /* public function getGroups()
-    {
-        $groupId = $customer['group_id'];
 
-        do{
-            $handler = $this->pdo->prepare('SELECT * FROM customer_group WHERE id = :id');
-            $handler->bindValue(':id', $groupId);
-            $handler->execute();
-            $customerGroup = $handler->fetch();
-            array_push($this->customerGroups, $customerGroup);
-
-            $groupId = $customerGroup['parent_id'];
-        } while($groupId != null);
-
-    }
-  */
 
     public function getCustomers(): array
     {
