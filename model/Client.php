@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 class Client
 {
-    private $firstName;
-    private $lastName;
-    private $groupId;
-    private $pdo;
+    private string $firstName;
+    private string $lastName;
+    private int $groupId;
+    private object $pdo;
     private $fixedDiscounts;
     private $varDiscounts;
     private $customerGroups;
 
-    public function __construct($firstName, $lastName, $groupId, $pdo, $fixedDiscounts, $varDiscounts)
+    public function __construct($firstName, $lastName, int $groupId, object $pdo, $fixedDiscounts, $varDiscounts)
     {
         $this->firstName = $firstName;
         $this->lastName = $lastName;

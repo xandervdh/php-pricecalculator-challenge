@@ -3,7 +3,7 @@
 
 class Customers
 {
-    private $pdo;
+    private object $pdo;
     private array $customers = [];
 
 
