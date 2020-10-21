@@ -5,7 +5,7 @@ declare(strict_types=1);
 class Product
 {
     private string $productname;
-    private $productprice;
+    private float $productprice;
 
     public function __construct($productname, $productprice)
     {
@@ -21,11 +21,11 @@ class Product
         return $this->productname;
     }
 
-    public function getProductprice()
+    public function getProductprice():float
     {
         return $this->productprice;
     }
 
 }
-// $p = new Product();
+
 

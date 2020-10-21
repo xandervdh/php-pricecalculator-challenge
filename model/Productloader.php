@@ -6,12 +6,12 @@ class Productloader
     private array $products = [];
     private $pdo;
 
-    public function __construct($pdo)
+    public function __construct(PDO $pdo)
     {
         $this->pdo = $pdo;
         $result = $this->LoadAllProducts();
         foreach ($result as $row) {
-            $divideBy = $row['price'] / 100;
+            $divideBy = $row['price'];
             array_push($this->products, new Product($row['name'], $divideBy));
         }
 
@@ -31,5 +31,3 @@ class Productloader
 
     }
 }
-
-// new product gaat loop worden die gaat vragen naar naam en prijs van de database
