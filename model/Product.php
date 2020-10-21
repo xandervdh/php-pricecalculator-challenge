@@ -5,7 +5,7 @@ declare(strict_types=1);
 class Product
 {
     private string $productname;
-    private float $productprice;
+    private int $productprice;
 
     public function __construct($productname, $productprice)
     {

@@ -28,9 +28,8 @@ class HomepageController
             if ($_POST['client'] != 'empty' && $_POST['product'] != 'empty') {
                 $success = '<div class="alert alert-success" role="alert"> Price calculated </div>';
 
-                $calculate = new Calculate(intval($_POST['client']), intval($_POST['product']), $pdo);
+                $calculate = new Calculate($pdo, $products, $_POST['product'], $customers, $_POST['client']);
                 $total = $calculate->calculateDiscount();
-                var_dump($calculate);
 
             }
         }

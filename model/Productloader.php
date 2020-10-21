@@ -11,8 +11,7 @@ class Productloader
         $this->pdo = $pdo;
         $result = $this->LoadAllProducts();
         foreach ($result as $row) {
-            $divideBy = $row['price'];
-            array_push($this->products, new Product($row['name'], $divideBy));
+            array_push($this->products, new Product($row['name'], intval($row['price'])));
         }
 
     }
