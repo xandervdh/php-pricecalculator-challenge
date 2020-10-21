@@ -21,7 +21,7 @@ require 'includes/header.php';
             <?php
             foreach ($productsArray as $product) {
                 //productPrice()/100
-                echo '<option value="' . $product->getProductname() . '">' . $product->getProductname() . ' - €' . $product->getProductprice()/100 . '</option>';
+                echo '<option value="' . $product->getProductname() . '">' . $product->getProductname() . ' - €' . $product->getProductprice() . '</option>';
             }
             ?>
         </select><br>
