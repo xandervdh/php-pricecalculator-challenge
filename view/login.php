@@ -15,7 +15,7 @@ require 'includes/header.php';
                 }
                 ?>
             </select><br>
-            <input type="submit" value="Calculate" class="btn btn-primary">
+            <input type="submit" value="Login" class="btn btn-primary">
         </form>
     </div>
 
