@@ -76,7 +76,7 @@ class Calculate
             $variableDisc = ($this->product->getProductprice() / 100) * $this->customer->getVarDiscount();
             $bool = true;
             if ($discount[0] < $variableDisc) {
-                $this->discount = $variableDisc;
+                $this->discount = $this->customer->getVarDiscount();
             }
         }
         array_push($discount, $bool);
@@ -90,17 +90,21 @@ class Calculate
         if ($discount[2]) {
             $percentage = ($price/100) * $this->discount;
             $total = $price - $percentage;
+            array_push($this->calculation, 'group or customer', $this->discount . '%');
         } elseif ($discount[1] == true && $this->customer->getFixedDiscounts() != null) {
             $total = $price - $this->customer->getFixedDiscounts();
             $percentage = ($total/100) * $this->discount;
             $total -= $percentage;
+            array_push($this->calculation, 'customer', '€' . $this->customer->getFixedDiscounts(), 'group', $this->discount . '%');
         } elseif ($discount[1] == false && $this->customer->getVarDiscount() != null) {
             $total = $price - $discount[0];
             $percentage = ($total / 100) * $this->customer->getVarDiscount();
             $total -= $percentage;
+            array_push($this->calculation, 'group', '€' . $discount[0], 'customer', $this->customer->getVarDiscount() . '%');
         } else {
             $total = $price - $discount[0];
             $total -= $this->customer->getFixedDiscounts();
+            array_push($this->calculation, 'group', '€' . $discount[0], 'customer', '€' . $this->customer->getFixedDiscounts());
         }
         if ($total < 0) {
             $total = 0;
