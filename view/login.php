@@ -6,9 +6,9 @@ require 'includes/header.php';
 ?>
     <div class="form-container">
         <form method="get">
-            <label for="client">Choose a client:</label>
+            <label for="client">Welcome</label>
             <select class='option-box' id="client" name="client">
-                <option value="empty" selected>- Choose user -</option>
+                <option value="empty" selected>Choose user</option>
                 <?php
                 foreach ($clients as $client) {
                     echo '<option value="' . $client->getLastname() . '">' . $client->getFirstname() . ' ' . $client->getLastname() . '</option>';
