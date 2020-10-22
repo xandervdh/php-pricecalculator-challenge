@@ -6,12 +6,14 @@ class Product
 {   //added properties and type
     private string $productname;
     private int $productprice;
+    private $category;
 
     //added method
-    public function __construct(string $productname, int $productprice)
+    public function __construct(string $productname, int $productprice, $category)
     {
         $this->productname = $productname;
         $this->productprice = $productprice;
+        $this->category = $category;
     }
 
     // get the private property productname
@@ -25,6 +27,15 @@ class Product
     {
         return $this->productprice;
     }
+
+
+    public function getCategory(): string
+    {
+        return $this->category;
+    }
+
+
+
 }
 
 
