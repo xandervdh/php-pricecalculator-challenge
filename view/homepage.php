@@ -20,27 +20,27 @@ require 'includes/header.php';
                 echo '</p>';
                 echo '<select class="option-box" id="quantity" name="quantity">';
                 echo '<option value="empty" selected>quantity</option>';
-                echo '<option value="1">1</option>';
-                echo '<option value="2">2</option>';
-                echo '<option value="3">3</option>';
-                echo '<option value="4">4</option>';
-                echo '<option value="5">5</option>';
-                echo '<option value="6">6</option>';
-                echo '<option value="7">7</option>';
-                echo '<option value="8">8</option>';
-                echo '<option value="9">9</option>';
 
-                for ($i = 10; $i <= 1000; $i += 10) {
+                for ($i = 1; $i < 10; $i++) {
+                    echo '<option value="' . $i . '">' . $i . '</option>';
+                }
+
+                for ($i = 10; $i <= 100; $i += 10) {
+                    echo '<option value="' . $i . '">' . $i . '</option>';
+                }
+                for ($i = 200; $i <= 1000; $i += 100) {
                     echo '<option value="' . $i . '">' . $i . '</option>';
                 }
 
                 echo '</select><br>';
-                echo '<input type="submit" class="btn" value="buy" name=" '. $product->getProductname() . '">';
+                echo '<input type="hidden" name="product" value="'. $product->getProductname() . '">';
+                echo '<input type="submit" class="btn" name="submit" value="Buy">';
                 echo '</div>';
 
 
-            }
 
+            }
+            var_dump($_POST['product']);
             ?>
     </form>
     </div>
