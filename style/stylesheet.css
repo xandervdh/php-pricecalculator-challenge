@@ -46,7 +46,7 @@ select {
 }
 
 #echo-success {
-  color: #f1f3f5;
+  color: #4e7495;
   text-align: center;
 }
 
@@ -93,7 +93,7 @@ h4, h5 {
 }
 
 #result {
-  color: #f1f3f5;
+  color: #4e7495;
   text-align: center;
 }
 
