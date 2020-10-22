@@ -33,7 +33,7 @@ class HomepageController
         $success = "";
         if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['selectedProduct'])) {
             if ($_POST['selectedProduct'] != 'empty') {
-                $success = '<div class="alert alert-success" role="alert"> Price calculated </div>';
+                $success = '<div class="alert alert-success" role="alert"> Thank you for your purchase. </div>';
 
                 $calculate = new Calculate($pdo, $products, $_POST['selectedProduct'], $customerObj, $_GET['client']);
                 $total = $calculate->calculateDiscount();

@@ -15,10 +15,9 @@
 
 @mixin font-related-option{
   font-family: 'Work Sans', sans-serif;
-  font-size: 16px;
   color: rgb(78, 116, 149);
   text-align: center;
-  width: 200px;
+  font-size: 12px;
 }
 
 @mixin btn-base-color {
@@ -38,7 +37,12 @@
 body{
   background: rgba(193, 246, 242, 0.7);
   text-align: center;
+}
 
+.body-wrap{
+  margin: 0 auto;
+  width: 80%;
+  text-align: center;
 }
 //FORM
 .form-container {
@@ -51,7 +55,9 @@ body{
   border-radius: 25%;
 }
 
-
+.form-card-wrap {
+display: inline-block;
+}
 
 label {
   @include font-related-label;
@@ -64,56 +70,65 @@ label {
 
 // DROPDOWN BOXES
 .option-box {
-  @include font-related-option;
-
+  margin-top: 3%;
+  margin-bottom: 3%;
 
 }
 
 select {
-  display: block;
-  text-align: center;
+  @include font-related-option;
   margin: 0 auto;
   text-transform: uppercase;
-  font-size: 16px;
-
-
+  width: 165px;
+  height: 45px;
 
 }
-
 
 //CARDS
 
-h4, h5{
-  text-transform: capitalize;
-}
 
 .card {
-  display: inline-block;
-  width: 200px;
-  margin-left: 10px;
-  margin-bottom: 10px;
+  width: 250px;
+  margin-left: 60px;
+  margin-bottom: 25px;
   border: 2px solid rgb(245, 165, 28);
 }
 
-.card-title, .card-subtitle {
-  font-weight: 700;
-  color: rgb(78, 116, 149);
-  font-family: 'Work Sans', sans-serif;
+.card-title {
+  @include base-font-edit;
+  text-transform: capitalize;
+  font-weight: 900;
+  margin-top: 10px;
+  font-size: larger;
+}
+
+.card-subtitle{
+  @include base-font-edit;
+
 }
 
 // BUTTONS
+
 .btn {
   @include btn-base-color;
   @include font-related-option;
   text-transform: capitalize;
   color: rgb(241, 243, 245);
-  margin-bottom: 3%;
   width: 180px;
+  margin: 10px auto;
+  display: block;
+  background: linear-gradient(to right, rgb(245, 165, 28) 50%, rgb(238, 180, 82) 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  transition: all .5s ease-out;
 }
 
 .btn:hover {
-  background: rgba(245, 165, 28, 0.8);
-  box-shadow: 1px 1px 1px 1px rgb(241, 243, 245);
+  /* background: rgba(245, 165, 28, 0.8);
+   box-shadow: 1px 1px 1px 1px rgb(241, 243, 245);
+  */
+  color: rgb(241, 243, 245);
+  background-position: left bottom;
 }
 
 .btn:active {
@@ -124,5 +139,18 @@ h4, h5{
 
 #result, #echo-success {
 @include base-font-edit;
+}
+
+#catButton{
+  width: 100px;
+}
+
+#buyButton {
+  font-size: 18px;
+  font-weight: 900;
+}
+
+#quantity {
+  height: 20px;
 }
 
