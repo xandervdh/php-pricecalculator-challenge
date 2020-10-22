@@ -7,15 +7,6 @@ require 'includes/header.php';
 
     <div class="form-container">
         <form method="post">
-            <!--<label for="client">Choose user:</label>
-            <select class='option-box' id="client" name="client">
-                <option value="empty" selected>- Choose option -</option>
-                <?php
-                foreach ($clients as $client) {
-                    echo '<option value="' . $client->getLastname() . '">' . $client->getFirstname() . ' ' . $client->getLastname() . '</option>';
-                }
-                ?>
-            </select><br>-->
             <label for="product">Choose a product:</label>
             <select class='option-box' id="product" name="product">
                 <option value="empty" selected>- Choose option -</option>
@@ -23,6 +14,24 @@ require 'includes/header.php';
                 foreach ($productsArray as $product) {
                     //productPrice()/100
                     echo '<option value="' . $product->getProductname() . '">' . $product->getProductname() . ' - €' . $product->getProductprice() / 100 . '</option>';
+                }
+                ?>
+            </select><br>
+            <label for="quantity">Choose quantity:</label>
+            <select class='option-box' id="quantity" name="quantity">
+                <option value="empty" selected>- Choose option -</option>
+                <option value="1" >1</option>
+                <option value="2" >2</option>
+                <option value="3" >3</option>
+                <option value="4" >4</option>
+                <option value="5" >5</option>
+                <option value="6" >6</option>
+                <option value="7" >7</option>
+                <option value="8" >8</option>
+                <option value="9" >9</option>
+                <?php
+                for ($i = 10; $i <= 1000; $i += 10){
+                    echo '<option value="' . $i . '">' . $i . '</option>';
                 }
                 ?>
             </select><br>
