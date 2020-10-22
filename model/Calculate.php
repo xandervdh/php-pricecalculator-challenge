@@ -105,7 +105,7 @@ class Calculate
             $total = $price - $percentage;
             array_push($this->calculation, $groupOrCustumor . ': ' . $this->discount . '%');
         } elseif ($discount[1] == true && $this->customer->getFixedDiscounts() != null) {
-            $total = $price - $this->customer->getFixedDiscounts();
+            $total = $price - ($this->customer->getFixedDiscounts()) * 100;
             $percentage = ($total / 100) * $this->discount;
             $total = $total - $percentage;
             array_push($this->calculation, 'customer: €' . $this->customer->getFixedDiscounts(), 'group: ' . $this->discount . '%');
