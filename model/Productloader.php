@@ -11,7 +11,7 @@ class Productloader
         $result = $this->pdo->query("SELECT name, price, category FROM product");//fetching data by query
         foreach ($result as $row) {
             //pushes the productname and price in the array
-            array_push($this->products, new Product($row['name'], intval($row['price'], $row['category'])));
+            array_push($this->products, new Product($row['name'], intval($row['price']),  $row['category']));
         }
 
     }
