@@ -2,15 +2,16 @@
 @mixin font-related-label {
   font-family: 'Work Sans', sans-serif;
   font-size: 20px;
+  text-align: center;
+  color: rgb(78, 116, 149);
 }
 
 @mixin font-related-option{
   font-family: 'Work Sans', sans-serif;
   font-size: 16px;
-  font-weight: 900;
   color: rgb(78, 116, 149);
   text-align: center;
-  width: 300px;
+  width: 150px;
 }
 
 @mixin btn-base-color {
@@ -33,6 +34,8 @@
 
 body{
   background: rgba(193, 246, 242, 0.7);
+  text-align: center;
+
 }
 //FORM
 .form-container {
@@ -49,33 +52,28 @@ body{
 
 label {
   @include font-related-label;
-  text-align: center;
   display: block;
-}
-label:first-child{
   margin-top: 5%;
   margin-bottom: 5%;
 }
+
+
+
+// DROPDOWN BOXES
+.option-box {
+  @include font-related-option;
+
+
+}
+
 select {
   display: block;
   text-align: center;
   margin: 0 auto;
-  width: 150px;
   text-transform: uppercase;
-  font-size: 16px; //use 16px minimum because mac will zoom-in.
+  font-size: 16px;
 
-}
-.product-container {
-  height: 100px;
-  width: 100px;
-  background-color: yellow;
-  display: flex;
-  flex-direction: column;
-}
 
-.option-box {
-  @include font-related-option;
-  display: flex;
 
 }
 
@@ -83,13 +81,32 @@ select {
 @include base-font-edit;
 
 }
+//PRODUCTS
 
+h4, h5{
+  text-transform: capitalize;
+}
+
+.card {
+  display: inline-block;
+  width: 200px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  border: 2px solid rgb(245, 165, 28);
+}
+
+.card-title, .card-subtitle {
+  font-weight: 700;
+  color: rgb(78, 116, 149);
+  font-family: 'Work Sans', sans-serif;
+}
 .btn {
   @include btn-base-color;
   @include font-related-option;
-  color: white;
+  text-transform: capitalize;
+  color: rgb(241, 243, 245);
   margin-bottom: 3%;
-  width: 200px;
+  width: 180px;
 }
 
 .btn:hover {
@@ -109,10 +126,4 @@ select {
 
 
 
-.card {
-  display: inline-block;
-  width: 200px;
-  margin-left: 10px;
-  margin-bottom: 10px;
 
-}
