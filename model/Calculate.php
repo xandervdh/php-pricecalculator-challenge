@@ -8,7 +8,7 @@ class Calculate
     private Product $product;
     private array $customerGroups;
     private float $discount;
-    private $calculation;
+    private array $calculation = [];
 
     public function __construct(PDO $pdo, Productloader $product, string $productName, Customers $clients, string $client)
     {
@@ -73,38 +73,51 @@ class Calculate
         $bool = false;
         $discount = $this->discountComparison();
         if ($discount[1] == true && $this->customer->getVarDiscount() != null) {
-            $variableDisc = ($this->product->getProductprice() / 100) * $this->customer->getVarDiscount();
+            $variableDiscCustomer = ($this->product->getProductprice() / 100) * $this->customer->getVarDiscount();
+            $variableDiscGroup = ($this->product->getProductprice() / 100) * $discount[0];
             $bool = true;
-            if ($discount[0] < $variableDisc) {
-                $this->discount = $this->customer->getVarDiscount();
+            if ($variableDiscGroup < $variableDiscCustomer) {
+                $this->discount = intval($this->customer->getVarDiscount());
+                array_push($this->calculation, 'customer');
+            } else {
+                array_push($this->calculation, 'group');
             }
         }
         array_push($discount, $bool);
         return $discount;
     }
 
-    public function calculateDiscount() :float
+    public function calculateDiscount(): float
     {
+        $groupOrCustumor = "";
+        if (!empty($this->calculation)){
+            if ($this->calculation[0] === 'customer'){
+                $groupOrCustumor = 'customer';
+            } else {
+                $groupOrCustumor = 'group';
+            }
+            $this->calculation = [];
+        }
         $price = $this->product->getProductprice();
         $discount = $this->checkCustomerDiscount();
         if ($discount[2]) {
-            $percentage = ($price/100) * $this->discount;
+            $percentage = ($price / 100) * $this->discount;
             $total = $price - $percentage;
-            array_push($this->calculation, 'group or customer', $this->discount . '%');
+            array_push($this->calculation, $groupOrCustumor . ': ' . $this->discount . '%');
         } elseif ($discount[1] == true && $this->customer->getFixedDiscounts() != null) {
-            $total = $price - $this->customer->getFixedDiscounts();
-            $percentage = ($total/100) * $this->discount;
-            $total -= $percentage;
-            array_push($this->calculation, 'customer', '€' . $this->customer->getFixedDiscounts(), 'group', $this->discount . '%');
+            $total = $price - ($this->customer->getFixedDiscounts()) * 100;
+            $percentage = ($total / 100) * $this->discount;
+            $total = $total - $percentage;
+            array_push($this->calculation, 'customer: €' . $this->customer->getFixedDiscounts(), 'group: ' . $this->discount . '%');
         } elseif ($discount[1] == false && $this->customer->getVarDiscount() != null) {
             $total = $price - $discount[0];
             $percentage = ($total / 100) * $this->customer->getVarDiscount();
             $total -= $percentage;
-            array_push($this->calculation, 'group', '€' . $discount[0], 'customer', $this->customer->getVarDiscount() . '%');
+            array_push($this->calculation, 'group: €' . $discount[0]/100, 'customer: ' . $this->customer->getVarDiscount() . '%');
         } else {
             $total = $price - $discount[0];
             $total -= $this->customer->getFixedDiscounts();
-            array_push($this->calculation, 'group', '€' . $discount[0], 'customer', '€' . $this->customer->getFixedDiscounts());
+            array_push($this->calculation, 'group: €' . $discount[0]/100, 'customer: €' . $this->customer->getFixedDiscounts());
         }
         if ($total < 0) {
             $total = 0;
@@ -112,4 +125,10 @@ class Calculate
         $total = $total / 100;
         return $total;
     }
+
+    public function getCalculation(): array
+    {
+        return $this->calculation;
+    }
+
 }

@@ -45,13 +45,12 @@ body{
   border-radius: 25%;
 }
 
-form {
-  text-align: center;
-}
+
 
 label {
   @include font-related-label;
   text-align: center;
+  display: block;
 }
 label:first-child{
   margin-top: 5%;
@@ -66,7 +65,13 @@ select {
   font-size: 16px; //use 16px minimum because mac will zoom-in.
 
 }
-
+.product-container {
+  height: 100px;
+  width: 100px;
+  background-color: yellow;
+  display: flex;
+  flex-direction: column;
+}
 
 .option-box {
   @include font-related-option;
@@ -100,4 +105,14 @@ select {
 
 #result {
 @include base-font-edit;
+}
+
+
+
+.card {
+  display: inline-block;
+  width: 200px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+
 }
