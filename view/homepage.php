@@ -6,6 +6,15 @@ require 'includes/header.php';
 ?>
 
 <div >
+    <div id="echo-success"><?php echo $success; ?></div>
+    <div id="result">
+        <?php
+        if (isset($total)) {
+
+            echo 'Your total will be €' . number_format($total, 2, ',', '.') . '<br/>';
+        }
+        ?>
+    </div>
     <div class='product' id="product">
     <form method="post">
         <label for="product">Choose a product:</label>
@@ -44,14 +53,7 @@ require 'includes/header.php';
             ?>
     </form>
     </div>
-    <div id="echo-success"><?php echo $success; ?></div>
-    <div id="result">
-        <?php
-        if (isset($total)) {
-            echo 'Your total will be €' . number_format($total, 2, ',', '.') . '<br/>';
-        }
-        ?>
-    </div>
+
 
 </div>
 

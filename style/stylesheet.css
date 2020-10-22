@@ -23,10 +23,8 @@ label {
   font-family: "Work Sans", sans-serif;
   font-size: 20px;
   text-align: center;
+  color: #4e7495;
   display: block;
-}
-
-label:first-child {
   margin-top: 5%;
   margin-bottom: 5%;
 }
@@ -34,7 +32,6 @@ label:first-child {
 .option-box {
   font-family: "Work Sans", sans-serif;
   font-size: 16px;
-  font-weight: 900;
   color: #4e7495;
   text-align: center;
   width: 150px;
@@ -49,7 +46,7 @@ select {
 }
 
 #echo-success {
-  color: #f1f3f5;
+  color: #4e7495;
   text-align: center;
 }
 
@@ -62,6 +59,13 @@ h4, h5 {
   width: 200px;
   margin-left: 10px;
   margin-bottom: 10px;
+  border: 2px solid #f5a51c;
+}
+
+.card-title, .card-subtitle {
+  font-weight: 700;
+  color: #4e7495;
+  font-family: "Work Sans", sans-serif;
 }
 
 .btn {
@@ -69,7 +73,6 @@ h4, h5 {
   border: #f1f3f5;
   font-family: "Work Sans", sans-serif;
   font-size: 16px;
-  font-weight: 900;
   color: #4e7495;
   text-align: center;
   width: 150px;
@@ -90,7 +93,7 @@ h4, h5 {
 }
 
 #result {
-  color: #f1f3f5;
+  color: #4e7495;
   text-align: center;
 }
 

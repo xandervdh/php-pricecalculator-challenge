@@ -2,12 +2,13 @@
 @mixin font-related-label {
   font-family: 'Work Sans', sans-serif;
   font-size: 20px;
+  text-align: center;
+  color: rgb(78, 116, 149);
 }
 
 @mixin font-related-option{
   font-family: 'Work Sans', sans-serif;
   font-size: 16px;
-  font-weight: 900;
   color: rgb(78, 116, 149);
   text-align: center;
   width: 150px;
@@ -19,7 +20,7 @@
 }
 
 @mixin base-font-edit{
-  color: rgb(241, 243, 245);
+  color: rgb(78, 116, 149);
   text-align: center;
 
 }
@@ -51,18 +52,17 @@ body{
 
 label {
   @include font-related-label;
-  text-align: center;
   display: block;
-}
-label:first-child{
   margin-top: 5%;
   margin-bottom: 5%;
 }
 
 
+
 // DROPDOWN BOXES
 .option-box {
   @include font-related-option;
+
 
 }
 
@@ -71,7 +71,9 @@ select {
   text-align: center;
   margin: 0 auto;
   text-transform: uppercase;
-  font-size: 16px; //use 16px minimum because mac will zoom-in.
+  font-size: 16px;
+
+
 
 }
 
@@ -90,9 +92,14 @@ h4, h5{
   width: 200px;
   margin-left: 10px;
   margin-bottom: 10px;
-
+  border: 2px solid rgb(245, 165, 28);
 }
 
+.card-title, .card-subtitle {
+  font-weight: 700;
+  color: rgb(78, 116, 149);
+  font-family: 'Work Sans', sans-serif;
+}
 .btn {
   @include btn-base-color;
   @include font-related-option;
