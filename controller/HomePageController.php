@@ -23,8 +23,15 @@ class HomepageController
         $products = new Productloader($pdo);
         $productsArray = $products->getProducts();
 
+        $categories = [];
+        foreach ($productsArray as $product){
+            if (!in_array($product->getCategory(), $categories)){
+                array_push($categories, $product->getCategory());
+            }
+        }
+
         $success = "";
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['selectedProduct'])) {
             if ($_POST['selectedProduct'] != 'empty') {
                 $success = '<div class="alert alert-success" role="alert"> Price calculated </div>';
 
