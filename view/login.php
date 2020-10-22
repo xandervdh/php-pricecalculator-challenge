@@ -15,11 +15,7 @@ require 'includes/header.php';
                 }
                 ?>
             </select><br>
-<<<<<<< HEAD
-            <input type="submit" value="Confirm" class="btn">
-=======
-            <input type="submit" value="Login" class="btn btn-primary">
->>>>>>> c7c3e93619a4137df4c83987e9c05c916df1f680
+            <input type="submit" value="Login" class="btn">
         </form>
     </div>
 
