@@ -25,14 +25,15 @@ class HomepageController
 
         $success = "";
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            if ($_POST['product'] != 'empty') {
+            if ($_POST['selectedProduct'] != 'empty') {
                 $success = '<div class="alert alert-success" role="alert"> Price calculated </div>';
 
-                $calculate = new Calculate($pdo, $products, $_POST['product'], $customerObj, $_GET['client']);
+                $calculate = new Calculate($pdo, $products, $_POST['selectedProduct'], $customerObj, $_GET['client']);
                 $total = $calculate->calculateDiscount();
 
             }
         }
+        var_dump($_POST);
         require 'view/homepage.php';
     }
 }

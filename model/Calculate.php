@@ -15,7 +15,7 @@ class Calculate
         $this->pdo = $pdo;
         $products = $product->getProducts();
         foreach ($products as $product) {
-            if ($product->getProductname() === $productName) {
+            if ($product->getProductname() == $productName) {
                 $this->product = $product;
             }
         }

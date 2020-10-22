@@ -16,11 +16,11 @@ require 'includes/header.php';
         ?>
     </div>
     <div class='product' id="product">
-    <form method="post">
         <label for="product">Choose a product:</label>
             <?php
 
             foreach ($productsArray as $product) {
+                echo '<form method="post">';
                 echo ' <div class="card">';
                 echo ' <h4 class="card-title product-name">' . $product->getProductname() . '</h4>';
                 echo '<h6 class="card-subtitle mb-2 text-muted product-price">' .'€' . $product->getProductprice()/100 . '</h6>';
@@ -42,16 +42,15 @@ require 'includes/header.php';
                 }
 
                 echo '</select><br>';
-                echo '<input type="hidden" name="product" value="'. $product->getProductname() . '">';
+                echo '<input type="hidden" name="selectedProduct" value="'. $product->getProductname() . '">';
                 echo '<input type="submit" class="btn" name="submit" value="Buy">';
                 echo '</div>';
-
+                echo '</form>';
 
 
             }
             var_dump($_POST['product']);
             ?>
-    </form>
     </div>
 
 
