@@ -22,8 +22,8 @@ body {
 label {
   font-family: "Work Sans", sans-serif;
   font-size: 20px;
+  color: #f1f3f5;
   text-align: center;
-  color: #4e7495;
   display: block;
   margin-top: 5%;
   margin-bottom: 5%;
@@ -34,7 +34,7 @@ label {
   font-size: 16px;
   color: #4e7495;
   text-align: center;
-  width: 150px;
+  width: 200px;
 }
 
 select {
@@ -43,11 +43,6 @@ select {
   margin: 0 auto;
   text-transform: uppercase;
   font-size: 16px;
-}
-
-#echo-success {
-  color: #4e7495;
-  text-align: center;
 }
 
 h4, h5 {
@@ -75,7 +70,7 @@ h4, h5 {
   font-size: 16px;
   color: #4e7495;
   text-align: center;
-  width: 150px;
+  width: 200px;
   text-transform: capitalize;
   color: #f1f3f5;
   margin-bottom: 3%;
@@ -92,7 +87,8 @@ h4, h5 {
   border: #f1f3f5;
 }
 
-#result {
+#result, #echo-success {
+  font-family: "Work Sans", sans-serif;
   color: #4e7495;
   text-align: center;
 }

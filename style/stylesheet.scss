@@ -1,9 +1,16 @@
 //MIXINS
+@mixin base-font-edit{
+  font-family: 'Work Sans', sans-serif;
+  color: rgb(78, 116, 149);
+  text-align: center;
+
+}
+
 @mixin font-related-label {
   font-family: 'Work Sans', sans-serif;
   font-size: 20px;
+  color: rgb(241, 243, 245);
   text-align: center;
-  color: rgb(78, 116, 149);
 }
 
 @mixin font-related-option{
@@ -11,7 +18,7 @@
   font-size: 16px;
   color: rgb(78, 116, 149);
   text-align: center;
-  width: 150px;
+  width: 200px;
 }
 
 @mixin btn-base-color {
@@ -19,11 +26,7 @@
   border: rgb(241, 243, 245);
 }
 
-@mixin base-font-edit{
-  color: rgb(78, 116, 149);
-  text-align: center;
 
-}
 //BODY
 
 * {
@@ -77,11 +80,8 @@ select {
 
 }
 
-#echo-success {
-@include base-font-edit;
 
-}
-//PRODUCTS
+//CARDS
 
 h4, h5{
   text-transform: capitalize;
@@ -100,6 +100,8 @@ h4, h5{
   color: rgb(78, 116, 149);
   font-family: 'Work Sans', sans-serif;
 }
+
+// BUTTONS
 .btn {
   @include btn-base-color;
   @include font-related-option;
@@ -120,10 +122,7 @@ h4, h5{
 
 //ID's
 
-#result {
+#result, #echo-success {
 @include base-font-edit;
 }
-
-
-
 
