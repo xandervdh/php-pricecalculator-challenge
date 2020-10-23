@@ -43,6 +43,7 @@ require 'includes/header.php';
     <!-- Start Product -->
     <div class='product' id="product">
         <?php
+        var_dump($calculation);
         //if no category is set the page will default show all products
         if (!isset($_POST['category']) || $_POST['category'] == 'all') {
             //whilst doing this it will set each item in the products array and echo it in a bootstrap card.
@@ -59,7 +60,7 @@ require 'includes/header.php';
                 echo '<option value="empty" selected>Quantity</option>';
                 // Quantity select dropdown for each iteration it will first count up by 1 starting from 10 it'll increase by 10 and starting from 100 by 100
 
-                for ($i = 1; $i < 10; $i++) {
+                for ($i = 1; $i < 10; $i++) { //changed the value for discount per quantity
                     echo '<option value="0">' . $i . '</option>';
                 }
 

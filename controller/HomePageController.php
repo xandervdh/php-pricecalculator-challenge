@@ -34,7 +34,9 @@ class HomepageController
         $message = "";
         //if there is a POST request and selectedProduct is not empty
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            //if quantity is not selected
             if ($_POST['quantity'] == 'empty'){
+                //change message
                 $message = '<div class="alert alert-danger" role="alert"> Please choose a quantity! </div>';
             }else {
                 //set the succes message
