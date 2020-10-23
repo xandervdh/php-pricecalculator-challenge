@@ -31,9 +31,10 @@ body {
 
 label {
   font-family: "Work Sans", sans-serif;
-  font-size: 20px;
+  font-size: 16px;
   color: #f1f3f5;
   text-align: center;
+  font-weight: 700;
   display: block;
   margin-top: 5%;
   margin-bottom: 5%;
@@ -57,7 +58,8 @@ select {
 
 .card {
   width: 250px;
-  margin-left: 60px;
+  margin-left: 30px;
+  margin-right: 30px;
   margin-bottom: 25px;
   border: 2px solid #f5a51c;
 }
@@ -115,7 +117,39 @@ select {
   text-align: center;
 }
 
+#result {
+  font-family: "Work Sans", sans-serif;
+  font-size: 16px;
+  color: #f1f3f5;
+  text-align: center;
+  font-weight: 700;
+  position: absolute;
+  margin-bottom: 3%;
+  left: -160px;
+  width: 160px;
+  height: 100px;
+  background: #eeb452;
+  border: 3px solid #f1f3f5;
+  vertical-align: center;
+  -webkit-animation: slide 0.5s forwards;
+  -webkit-animation-delay: 2s;
+  animation: slide 0.5s forwards;
+  animation-delay: 0.5s;
+  text-transform: uppercase;
+}
+
+@-webkit-keyframes slide {
+  100% {
+    left: 0;
+  }
+}
+@keyframes slide {
+  100% {
+    left: 0;
+  }
+}
 #catButton {
+  margin-top: 2%;
   width: 100px;
 }
 
@@ -126,6 +160,10 @@ select {
 
 #quantity {
   height: 20px;
+}
+
+#categories {
+  margin: 3% auto;
 }
 
 /*# sourceMappingURL=stylesheet.css.map */
