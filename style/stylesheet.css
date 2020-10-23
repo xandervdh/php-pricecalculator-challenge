@@ -31,7 +31,7 @@ body {
 
 label {
   font-family: "Work Sans", sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   color: #f1f3f5;
   text-align: center;
   font-weight: 700;
@@ -119,23 +119,33 @@ select {
 
 #result {
   font-family: "Work Sans", sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   color: #f1f3f5;
   text-align: center;
   font-weight: 700;
   position: absolute;
   margin-bottom: 3%;
-  left: -160px;
-  width: 160px;
-  height: 100px;
-  background: #eeb452;
-  border: 3px solid #f1f3f5;
-  vertical-align: center;
+  margin-left: 0.5%;
+  left: -180px;
+  width: 180px;
+  height: 25%;
+  display: flex;
+  text-align: left;
+  font-weight: 900;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  line-height: 2;
+  background-image: url("../resources/resultDivBg.jpg");
+  background-size: cover;
+  background-position: center;
+  border: 2px solid #4e7495;
   -webkit-animation: slide 0.5s forwards;
   -webkit-animation-delay: 2s;
-  animation: slide 0.5s forwards;
+  animation: slide 1s forwards;
   animation-delay: 0.5s;
   text-transform: uppercase;
+  font-size: smaller;
 }
 
 @-webkit-keyframes slide {
