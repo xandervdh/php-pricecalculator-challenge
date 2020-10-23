@@ -41,7 +41,7 @@ class HomepageController
                 $message = '<div class="alert alert-success" role="alert"> Thank you for your purchase. </div>';
 
                 //make a new calculate object
-                $calculate = new Calculate($pdo, $products, $_POST['selectedProduct'], $customerObj, $_GET['client']);
+                $calculate = new Calculate($pdo, $products, $_POST['selectedProduct'], $customerObj, $_GET['client'], intval($_POST['quantity']));
                 $total = $calculate->calculateDiscount(); //get the price minus discounts
                 $calculation = $calculate->getCalculation(); //get the calculation process
             }
