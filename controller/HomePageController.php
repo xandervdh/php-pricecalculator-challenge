@@ -40,7 +40,7 @@ class HomepageController
             //make a new calculate object
             $calculate = new Calculate($pdo, $products, $_POST['selectedProduct'], $customerObj, $_GET['client']);
             $total = $calculate->calculateDiscount(); //get the price minus discounts
-            $calculation = $calculate->getCalculation(); //get the calculation proces
+            $calculation = $calculate->getCalculation(); //get the calculation process
 
         }
         require 'view/homepage.php';
