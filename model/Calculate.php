@@ -75,6 +75,7 @@ class Calculate
     {
         $bool = false; //default is false which means that the customer and the group have different types of discount
         $discount = $this->discountComparison();
+        $groupOrCustumor = "";
         if ($discount[1] == true && $this->customer->getVarDiscount() != null) {
             $variableDiscCustomer = ($this->product->getProductprice() / 100) * $this->customer->getVarDiscount(); //get value that will be substracted
             $variableDiscGroup = ($this->product->getProductprice() / 100) * $discount[0]; //get value that will be substracted
@@ -92,6 +93,7 @@ class Calculate
     //now that we have all discount we do the final calculation
     public function calculateDiscount(): float
     {
+        $discount = $this->checkCustomerDiscount(); //get the chosen discount
         //set the variable to group or customer to know where the percentage comes from
         $groupOrCustumor = "";
         if (!empty($this->calculation)){
@@ -103,7 +105,6 @@ class Calculate
             $this->calculation = []; //empty calculation again so we don't get errors
         }
         $price = $this->product->getProductprice(); //get the price
-        $discount = $this->checkCustomerDiscount(); //get the chosen discount
         $quantityDisc = ($price/100) * $this->quantity; //the value of the quantity discount to substract
         $price = $price - $quantityDisc; //result of price minus quantity discount
             //if the customer and the group have a variable discount
@@ -111,7 +112,7 @@ class Calculate
             $percentage = ($price / 100) * $this->discount;
             $total = $price - $percentage;
             array_push($this->calculation, 'Quantity discount: ' . $this->quantity . '%', $groupOrCustumor . ': ' . $this->discount . '%'); //push the price calculation
-            //if the group has a variable iscount and the customer has a fixed discount
+            //if the group has a variable discount and the customer has a fixed discount
         } elseif ($discount[1] == true && $this->customer->getFixedDiscounts() != null) {
             $total = $price - ($this->customer->getFixedDiscounts()) * 100;
             $percentage = ($total / 100) * $this->discount;
