@@ -93,17 +93,17 @@ require 'includes/header.php';
                     echo '<select class="option-box" id="quantity" name="quantity">';
                     echo '<option value="empty" selected>quantity</option>';
 
-                    for ($i = 1; $i < 10; $i++) {
-                        echo '<option value="' . $i . '">' . $i . '</option>';
+                    for ($i = 1; $i < 10; $i++) { //changed the value for discount per quantity
+                        echo '<option value="0">' . $i . '</option>';
                     }
 
-                    for ($i = 10; $i <= 100; $i += 10) {
-                        echo '<option value="' . $i . '">' . $i . '</option>';
+                    for ($i = 10; $i < 100; $i += 10) {
+                        echo '<option value="0">' . $i . '</option>';
                     }
-                    for ($i = 200; $i <= 1000; $i += 100) {
-                        echo '<option value="' . $i . '">' . $i . '</option>';
+                    for ($i = 100; $i < 1000; $i += 100) {
+                        echo '<option value="10">' . $i . '</option>';
                     }
-
+                    echo '<option value="20">1000</option>';
                     echo '</select><br>';
                     echo '<input type="hidden" name="selectedProduct" value="' . $product->getProductname() . '">';
                     echo '<input type="submit" id="buyButton" class="btn text-center" name="submit" value="Buy">';
@@ -113,7 +113,6 @@ require 'includes/header.php';
                 }
             }
         }
-
         ?>
     </div>
 
