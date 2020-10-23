@@ -104,8 +104,8 @@ class Calculate
         }
         $price = $this->product->getProductprice(); //get the price
         $discount = $this->checkCustomerDiscount(); //get the chosen discount
-        $quantityDisc = ($price/100) * $this->quantity;
-        $price = $price - $quantityDisc;
+        $quantityDisc = ($price/100) * $this->quantity; //the value of the quantity discount to substract
+        $price = $price - $quantityDisc; //result of price minus quantity discount
             //if the customer and the group have a variable discount
         if ($discount[2]) {
             $percentage = ($price / 100) * $this->discount;
