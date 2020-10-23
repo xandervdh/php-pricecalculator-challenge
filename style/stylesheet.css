@@ -111,7 +111,7 @@ select {
   border: #f1f3f5;
 }
 
-#result, #echo-success {
+#echo-success {
   font-family: "Work Sans", sans-serif;
   color: #4e7495;
   text-align: center;
@@ -126,6 +126,7 @@ select {
   position: absolute;
   margin-bottom: 3%;
   margin-left: 0.5%;
+  padding-left: 10px;
   left: -180px;
   width: 200px;
   height: 150px;
