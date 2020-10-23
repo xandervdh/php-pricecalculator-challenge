@@ -31,17 +31,20 @@ class HomepageController
             }
         }
 
-        $success = "";
+        $message = "";
         //if there is a POST request and selectedProduct is not empty
-        if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['selectedProduct'])) {
-            //set the succes message
-            $success = '<div class="alert alert-success" role="alert"> Thank you for your purchase. </div>';
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if ($_POST['quantity'] == 'empty'){
+                $message = '<div class="alert alert-danger" role="alert"> Please choose a quantity! </div>';
+            }else {
+                //set the succes message
+                $message = '<div class="alert alert-success" role="alert"> Thank you for your purchase. </div>';
 
-            //make a new calculate object
-            $calculate = new Calculate($pdo, $products, $_POST['selectedProduct'], $customerObj, $_GET['client']);
-            $total = $calculate->calculateDiscount(); //get the price minus discounts
-            $calculation = $calculate->getCalculation(); //get the calculation process
-
+                //make a new calculate object
+                $calculate = new Calculate($pdo, $products, $_POST['selectedProduct'], $customerObj, $_GET['client']);
+                $total = $calculate->calculateDiscount(); //get the price minus discounts
+                $calculation = $calculate->getCalculation(); //get the calculation process
+            }
         }
         require 'view/homepage.php';
     }

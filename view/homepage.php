@@ -24,7 +24,7 @@ require 'includes/header.php';
     </div>
     <!-- End Category Div -->
     <!-- with help from Bootstrap we echo a simple success alert once conditions have been met -->
-    <div id="echo-success"><?php echo $success; ?></div>
+    <div id="echo-success"><?php echo $message; ?></div>
     <!-- Start Result Div -->
     <div id="result">
         <?php
@@ -57,20 +57,20 @@ require 'includes/header.php';
                 echo '</p>';
                 echo '<p class="card-subtitle mb-2 text-muted product-price">' . '€' . $product->getProductprice() / 100 . '</p>';
                 echo '<select class="option-box" id="quantity" name="quantity">';
-                echo '<option value="empty" selected>quantity</option>';
+                echo '<option value="empty" selected>Quantity</option>';
                 // Quantity select dropdown for each iteration it will first count up by 1 starting from 10 it'll increase by 10 and starting from 100 by 100
 
                 for ($i = 1; $i < 10; $i++) {
-                    echo '<option value="' . $i . '">' . $i . '</option>';
+                    echo '<option value="0">' . $i . '</option>';
                 }
 
-                for ($i = 10; $i <= 100; $i += 10) {
-                    echo '<option value="' . $i . '">' . $i . '</option>';
+                for ($i = 10; $i < 100; $i += 10) {
+                    echo '<option value="0">' . $i . '</option>';
                 }
-                for ($i = 200; $i <= 1000; $i += 100) {
-                    echo '<option value="' . $i . '">' . $i . '</option>';
+                for ($i = 100; $i < 1000; $i += 100) {
+                    echo '<option value="10">' . $i . '</option>';
                 }
-
+                echo '<option value="20">1000</option>';
                 echo '</select><br>';
                 //hidden input will link selected product with product name in array.
                 echo '<input type="hidden" name="selectedProduct" value="' . $product->getProductname() . '">';
