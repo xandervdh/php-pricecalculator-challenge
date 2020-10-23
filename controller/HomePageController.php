@@ -40,7 +40,6 @@ class HomepageController
 
             }
         }
-        var_dump($_POST);
         require 'view/homepage.php';
     }
 }
