@@ -43,7 +43,6 @@ require 'includes/header.php';
     <!-- Start Product -->
     <div class='product' id="product">
         <?php
-        var_dump($calculation);
         //if no category is set the page will default show all products
         if (!isset($_POST['category']) || $_POST['category'] == 'all') {
             //whilst doing this it will set each item in the products array and echo it in a bootstrap card.
