@@ -93,9 +93,9 @@ class Calculate
         $groupOrCustumor = "";
         if (!empty($this->calculation)){
             if ($this->calculation[0] === 'customer'){
-                $groupOrCustumor = 'customer';
+                $groupOrCustumor = 'Customer';
             } else {
-                $groupOrCustumor = 'group';
+                $groupOrCustumor = 'Group';
             }
             $this->calculation = []; //empty calculation again so we don't get errors
         }
@@ -111,18 +111,18 @@ class Calculate
             $total = $price - ($this->customer->getFixedDiscounts()) * 100;
             $percentage = ($total / 100) * $this->discount;
             $total = $total - $percentage;
-            array_push($this->calculation, 'customer: €' . $this->customer->getFixedDiscounts(), 'group: ' . $this->discount . '%'); //push the price calculation
+            array_push($this->calculation, 'Customer: €' . $this->customer->getFixedDiscounts(), 'Group: ' . $this->discount . '%'); //push the price calculation
             //if the group has a fixed discount and the customer a variable discount
         } elseif ($discount[1] == false && $this->customer->getVarDiscount() != null) {
             $total = $price - $discount[0];
             $percentage = ($total / 100) * $this->customer->getVarDiscount();
             $total -= $percentage;
-            array_push($this->calculation, 'group: €' . $discount[0]/100, 'customer: ' . $this->customer->getVarDiscount() . '%'); //push the price calculation
+            array_push($this->calculation, 'Group: €' . $discount[0]/100, 'Customer: ' . $this->customer->getVarDiscount() . '%'); //push the price calculation
             //else the group and the customer have a fixed discount
         } else {
             $total = $price - $discount[0];
             $total -= $this->customer->getFixedDiscounts();
-            array_push($this->calculation, 'group: €' . $discount[0]/100, 'customer: €' . $this->customer->getFixedDiscounts()); //push the price calculation
+            array_push($this->calculation, 'Group: €' . $discount[0]/100, 'Customer: €' . $this->customer->getFixedDiscounts()); //push the price calculation
         }
         //if the total price is negative change total price to zero
         if ($total < 0) {
