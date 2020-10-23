@@ -26,7 +26,7 @@ require 'includes/header.php';
     <!-- with help from Bootstrap we echo a simple success alert once conditions have been met -->
     <div id="echo-success"><?php echo $success; ?></div>
     <!-- Start Result Div -->
-    <div id="result">
+    <div id="result" <?php if (!isset($calculation)){ echo 'style="display:none;"'; } ?>>
         <?php
         // checking if there was a call upon calculate and if so display end result.
         if (isset($calculation)){
@@ -36,7 +36,10 @@ require 'includes/header.php';
         }
         if (isset($total)) {
 
-            echo 'Your total will be €' . number_format($total, 2, ',', '.') . '<br/>';
+            echo 'Your total is €' . number_format($total, 2, ',', '.') . '<br/>';
+        }
+        else {
+
         }
         ?>
     </div>
