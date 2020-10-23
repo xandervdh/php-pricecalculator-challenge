@@ -16,6 +16,7 @@ class HomepageController
 {
     public function render()
     {
+        session_start();
         $pdo = openDB(); //get database connection
         $customerObj = new Customers($pdo); //make new customers opbject
         $clients = $customerObj->getCustomers(); //get the array of customers
@@ -34,15 +35,21 @@ class HomepageController
         $message = "";
         //if there is a POST request and selectedProduct is not empty
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if (isset($_SESSION['category'])){
+                $_POST['category'] = $_SESSION['category'];
+            } else {
+                $_SESSION['category'] = $_POST['category'];
+            }
             //if quantity is not selected
             if (isset($_POST['quantity'])) {
                 if ($_POST['quantity'] == 'empty') {
                     //change message
                     $message = '<div class="alert alert-danger" role="alert"> Please choose a quantity! </div>';
                 } else {
+                    unset($_SESSION['category']);
+                    $_POST['category'] = 'all';
                     //set the succes message
                     $message = '<div class="alert alert-success" role="alert"> Thank you for your purchase. </div>';
-
                     //make a new calculate object
                     $calculate = new Calculate($pdo, $products, $_POST['selectedProduct'], $customerObj, $_GET['client'], intval($_POST['quantity']));
                     $total = $calculate->calculateDiscount(); //get the price minus discounts
