@@ -8,7 +8,7 @@ class Product
     private int $productprice;
     private $category;
 
-    //added method
+    //added method with properties included
     public function __construct(string $productname, int $productprice, $category)
     {
         $this->productname = $productname;
@@ -28,12 +28,11 @@ class Product
         return $this->productprice;
     }
 
-
+    //get the private property productprice
     public function getCategory(): string
     {
         return $this->category;
     }
-
 
 
 }
