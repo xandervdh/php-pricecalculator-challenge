@@ -5,10 +5,9 @@ require 'includes/header.php';
 
 ?>
 
-<div >
+<div class="body-wrap" >
     <div id="categories">
         <form method="post">
-            <label for="category">Choose a category</label>
             <select name="category" id="category">
                 <option value="">Choose category</option>
                 <?php
@@ -16,8 +15,8 @@ require 'includes/header.php';
                     echo '<option value="' . $category . '">' . $category . '</option>';
                 }
                 ?>
-            </select>
-            <input type="submit" name="submit" value="go">
+            </select><br/>
+            <input type="submit" id="catButton" class="btn" name="submit" value="Confirm">
         </form>
     </div>
     <div id="echo-success"><?php echo $success; ?></div>
@@ -35,13 +34,14 @@ require 'includes/header.php';
 
             foreach ($productsArray as $product) {
                 if ($product->getCategory() == $_POST['category']) {
+                    echo '<div class="form-card-wrap">';
                     echo '<form method="post">';
-                    echo ' <div class="card">';
-                    echo ' <h4 class="card-title product-name">' . $product->getProductname() . '</h4>';
-                    echo '<h6 class="card-subtitle mb-2 text-muted product-price">' . '€' . $product->getProductprice() / 100 . '</h6>';
-                    echo '<p class="card-text">Some quick example text to build on the card title
-      and make up the bulk of the cards content.';
+                    echo ' <div class="card ">';
+                    echo ' <h6 class="card-title product-name">' . $product->getProductname() . '</h6>';
+                    echo '<p class="card-text">Hair raising or, blood in eyeball. Blood guns bury scream, stab graveyard crazed dark crying.
+ Trapped flesh grotesque squeal, bloodcurdling chilling hair-raisin.';
                     echo '</p>';
+                    echo '<p class="card-subtitle mb-2 text-muted product-price">' . '€' . $product->getProductprice() / 100 . '</p>';
                     echo '<select class="option-box" id="quantity" name="quantity">';
                     echo '<option value="empty" selected>quantity</option>';
 
@@ -58,9 +58,10 @@ require 'includes/header.php';
 
                     echo '</select><br>';
                     echo '<input type="hidden" name="selectedProduct" value="' . $product->getProductname() . '">';
-                    echo '<input type="submit" class="btn" name="submit" value="Buy">';
+                    echo '<input type="submit" id="buyButton" class="btn text-center" name="submit" value="Buy">';
                     echo '</div>';
                     echo '</form>';
+                    echo '</div>';
                 }
             }
             //var_dump($_POST['product']);

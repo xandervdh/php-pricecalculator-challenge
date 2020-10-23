@@ -9,6 +9,12 @@ body {
   text-align: center;
 }
 
+.body-wrap {
+  margin: 0 auto;
+  width: 80%;
+  text-align: center;
+}
+
 .form-container {
   border: 4px solid #f5a51c;
   margin: auto;
@@ -17,6 +23,10 @@ body {
   width: 500px;
   background: #4e7495;
   border-radius: 25%;
+}
+
+.form-card-wrap {
+  display: inline-block;
 }
 
 label {
@@ -30,56 +40,68 @@ label {
 }
 
 .option-box {
-  font-family: "Work Sans", sans-serif;
-  font-size: 16px;
-  color: #4e7495;
-  text-align: center;
-  width: 200px;
+  margin-top: 3%;
+  margin-bottom: 3%;
 }
 
 select {
-  display: block;
+  font-family: "Work Sans", sans-serif;
+  color: #4e7495;
   text-align: center;
+  font-size: 12px;
   margin: 0 auto;
   text-transform: uppercase;
-  font-size: 16px;
-}
-
-h4, h5 {
-  text-transform: capitalize;
+  width: 165px;
+  height: 45px;
 }
 
 .card {
-  display: inline-block;
-  width: 200px;
-  margin-left: 10px;
-  margin-bottom: 10px;
+  width: 250px;
+  margin-left: 60px;
+  margin-bottom: 25px;
   border: 2px solid #f5a51c;
 }
 
-.card-title, .card-subtitle {
-  font-weight: 700;
-  color: #4e7495;
+.card-title {
   font-family: "Work Sans", sans-serif;
+  color: #4e7495;
+  text-align: center;
+  text-transform: capitalize;
+  font-weight: 900;
+  margin-top: 10px;
+  font-size: larger;
+}
+
+.card-subtitle {
+  font-family: "Work Sans", sans-serif;
+  color: #4e7495;
+  text-align: center;
 }
 
 .btn {
   background: #f5a51c;
   border: #f1f3f5;
   font-family: "Work Sans", sans-serif;
-  font-size: 16px;
   color: #4e7495;
   text-align: center;
-  width: 200px;
+  font-size: 12px;
   text-transform: capitalize;
   color: #f1f3f5;
-  margin-bottom: 3%;
   width: 180px;
+  margin: 10px auto;
+  display: block;
+  background: linear-gradient(to right, #f5a51c 50%, #eeb452 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  transition: all 0.5s ease-out;
 }
 
 .btn:hover {
-  background: rgba(245, 165, 28, 0.8);
-  box-shadow: 1px 1px 1px 1px #f1f3f5;
+  /* background: rgba(245, 165, 28, 0.8);
+   box-shadow: 1px 1px 1px 1px rgb(241, 243, 245);
+  */
+  color: #f1f3f5;
+  background-position: left bottom;
 }
 
 .btn:active {
@@ -91,6 +113,19 @@ h4, h5 {
   font-family: "Work Sans", sans-serif;
   color: #4e7495;
   text-align: center;
+}
+
+#catButton {
+  width: 100px;
+}
+
+#buyButton {
+  font-size: 18px;
+  font-weight: 900;
+}
+
+#quantity {
+  height: 20px;
 }
 
 /*# sourceMappingURL=stylesheet.css.map */
