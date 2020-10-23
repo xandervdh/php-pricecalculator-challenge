@@ -35,7 +35,7 @@ require 'includes/header.php';
             }
         }
         if (isset($total)) {
-            echo 'Your total will be €' . number_format($total, 2, ',', '.') . '/piece<br/>';
+            echo 'Your total will be <br/>€' . number_format($total, 2, ',', '.') . '/piece<br/>';
         }
         ?>
     </div>
