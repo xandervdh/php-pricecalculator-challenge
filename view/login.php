@@ -7,10 +7,11 @@ require 'includes/header.php';
     <div class="form-container">
         <form method="get">
             <label for="client">Welcome</label>
-            <select class='option-box' id="client" name="client">
-                <option value="empty" selected>Choose user</option>
+            <select class='option-box' id="client" name="client"> <!-- dropdown form -->
+                <option value="empty" selected>Choose user</option> <!-- default option -->
                 <?php
                 foreach ($clients as $client) {
+                    //echo all the clients
                     echo '<option value="' . $client->getLastname() . '">' . $client->getFirstname() . ' ' . $client->getLastname() . '</option>';
                 }
                 ?>
