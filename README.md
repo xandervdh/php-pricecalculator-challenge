@@ -29,6 +29,6 @@ Going to work better together on github then last time.
 
 - [x] An actual login page for a customer
 - [x] A table where you can see in detail how the price is calculated
-- [ ] The possibility to have different prices for different quantities (look, 1 EUR per item for 1, 0.9 EUR per item for 100, ...)
+- [x] The possibility to have different prices for different quantities (look, 1 EUR per item for 1, 0.9 EUR per item for 100, ...)
 - [x] A category page for the different products
 
