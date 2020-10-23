@@ -37,6 +37,7 @@ class HomepageController
 
                 $calculate = new Calculate($pdo, $products, $_POST['selectedProduct'], $customerObj, $_GET['client']);
                 $total = $calculate->calculateDiscount();
+                $calculation = $calculate->getCalculation();
 
             }
         }

@@ -22,6 +22,11 @@ require 'includes/header.php';
     <div id="echo-success"><?php echo $success; ?></div>
     <div id="result">
         <?php
+        if (isset($calculation)){
+            foreach ($calculation as $value){
+                echo $value . '<br>';
+            }
+        }
         if (isset($total)) {
 
             echo 'Your total will be €' . number_format($total, 2, ',', '.') . '<br/>';
