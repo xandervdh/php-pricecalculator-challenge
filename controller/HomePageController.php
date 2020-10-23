@@ -38,8 +38,8 @@ class HomepageController
             //if the session exist fill post category with the session category
             if (isset($_SESSION['category'])){
                 $_POST['category'] = $_SESSION['category'];
-            } else { //else fill the session category with the post category
-                $_SESSION['category'] = $_POST['category'];
+            } elseif (!isset($_POST['category'])) { //else fill the session category with the post category
+                $_SESSION['category'] = 'all';
             }
             //if quantity is not selected
             if (isset($_POST['quantity'])) {
