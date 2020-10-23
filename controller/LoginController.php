@@ -13,7 +13,7 @@ class LoginController
 {
     public function render()
     {
-        $pdo = openDB();
+        $pdo = openDB();// make the connection to access the database
         $customerObj = new Customers($pdo);
         $clients = $customerObj->getCustomers();
 
